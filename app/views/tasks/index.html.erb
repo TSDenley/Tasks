@@ -1,2 +1,11 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1 class="main-header">What do You Need to get Done?</h1>
+
+<%= render 'form' %>
+
+<ul id="tasks">
+	<% for task in @tasks %>
+	<li class="task" id="task_<%= task.id %>"><b><%= task.task %></b>
+		<%= link_to 'Edit', edit_task_path(task) %>
+		<%= link_to 'Mark as done', task, :method => 'delete' %></li>
+	<% end %>
+</ul>
